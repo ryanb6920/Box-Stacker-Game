@@ -3,10 +3,31 @@
 
 #include "pch.h"
 #include <iostream>
+#include <Windows.h>
+#include <gl/GL.h>
+#include <gl/GLU.h>
+#include <gl/glut.h>
+#include "GameManager.h"
 
-int main()
+
+
+int main(int argc, char** argv)
 {
-    std::cout << "Hello World!\n"; 
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+	glutInitWindowSize(800, 800);
+	glutInitWindowPosition(100, 100);
+
+	glutCreateWindow("Test");
+
+	GameManager::init();
+	glutMouseFunc(GameManager::Mouse);
+	glutTimerFunc(1000 / 60, GameManager::Timer, 0);
+	glutDisplayFunc(GameManager::Display);
+	glutReshapeFunc(GameManager::Reshape);
+	glutKeyboardFunc(GameManager::Keyboard);
+	glutMainLoop();
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
