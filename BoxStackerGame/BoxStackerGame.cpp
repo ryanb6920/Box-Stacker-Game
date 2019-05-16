@@ -11,6 +11,10 @@
 
 
 
+
+
+
+
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
@@ -18,12 +22,13 @@ int main(int argc, char** argv)
 	glutInitWindowSize(800, 800);
 	glutInitWindowPosition(100, 100);
 
-	glutCreateWindow("Test");
+	glutCreateWindow("Box Stacker !!");
 
 	GameManager::init();
-	glutMouseFunc(GameManager::Mouse);
+	
 	glutTimerFunc(1000 / 60, GameManager::Timer, 0);
 	glutDisplayFunc(GameManager::Display);
+	glutMouseFunc(GameManager::Mouse);
 	glutReshapeFunc(GameManager::Reshape);
 	glutKeyboardFunc(GameManager::Keyboard);
 	glutMainLoop();

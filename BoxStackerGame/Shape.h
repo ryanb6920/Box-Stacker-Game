@@ -6,7 +6,7 @@ public:
 	double y;
 	double r;
 	double velocity = 0;
-	int type;
+	int type = 1;
 	bool grounded = false;
 	double colour[3] = { 0,0,0 };
 	Shape(double tx, double ty, double tr, int type);

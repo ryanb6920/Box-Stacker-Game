@@ -11,7 +11,8 @@ public:
 	GameManager();
 	~GameManager();	
 	static std::list<Shape> points;
-
+	static Shape uiShape;
+	static double ranr;
 	static void init(void);
 	static void Display();
 	static void Timer(int);
@@ -21,7 +22,11 @@ public:
 	static bool DetectCollision(Shape s1, Shape s2);
 	
 private:
+	static void OutputText(double x, double y, char* string);
+	static void OutputText(double x, double y, const char* string);
+	static void DrawObjects();
 	static void DrawSquare(float x, float y, float width);
+	static void DrawCircle(float x, float y, float r);
 
 };
 
