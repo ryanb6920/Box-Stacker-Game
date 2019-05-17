@@ -2,11 +2,12 @@
 #include "Shape.h"
 #include "GameManager.h"
 
-Shape::Shape(double tx, double ty, double tr, int ttype)
+Shape::Shape(float tx, float ty, float tr, int ttype)
 {
 	x = tx; y = ty; type = ttype; r = tr; //assign values
 }
 
+//chech if this shape has identical properties to Shape s
 bool Shape::Equals(Shape s) {
 	return (
 		x == s.x &&
@@ -17,7 +18,8 @@ bool Shape::Equals(Shape s) {
 		);
 }
 
-bool Shape::doesCollide() {
+//Check whether current shape collides with any other shape
+bool Shape::DoesCollide() {
 	for (std::list<Shape>::iterator it =  GameManager::points.begin(); it != GameManager::points.end(); ++it) {
 		if (!Equals(*it)) {
 			if (GameManager::DetectCollision(*this, (*it)))
@@ -27,8 +29,3 @@ bool Shape::doesCollide() {
 	return false;
 }
 
-
-
-Shape::~Shape()
-{
-}

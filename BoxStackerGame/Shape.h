@@ -2,16 +2,17 @@
 class Shape
 {
 public:
-	double x;
-	double y;
-	double r;
-	double velocity = 0;
+	//variables
+	float x;
+	float y;
+	float r;
+	float velocity = 0;
 	int type = 1;
 	bool grounded = false;
-	double colour[3] = { 0,0,0 };
-	Shape(double tx, double ty, double tr, int type);
-	~Shape();
+	float colour[3] = { 0,0,0 };
+	//methods
+	Shape(float tx, float ty, float tr, int type);
 	bool Equals(Shape s);
-	bool doesCollide();
+	bool DoesCollide();
 };
 
